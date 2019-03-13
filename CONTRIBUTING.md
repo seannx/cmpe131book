@@ -36,8 +36,3 @@ This will make your fork repo listen to master repo, if there is any change made
 
 
 
-
-
-
-
-

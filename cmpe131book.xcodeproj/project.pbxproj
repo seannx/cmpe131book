@@ -36,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		14205B0D2239AF6200681B3D /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
 		1459C14022345AD7001094F6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		14E979062231FC1B00680ABD /* cmpe131book.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cmpe131book.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14E979092231FC1B00680ABD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +83,7 @@
 		14E978FD2231FC1B00680ABD = {
 			isa = PBXGroup;
 			children = (
+				14205B0D2239AF6200681B3D /* CONTRIBUTING.md */,
 				1459C14022345AD7001094F6 /* README.md */,
 				14E979082231FC1B00680ABD /* cmpe131book */,
 				14E979212231FC1C00680ABD /* cmpe131bookTests */,
