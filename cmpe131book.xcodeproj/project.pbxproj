@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		147056B1224D96210096EF6A /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 147056B0224D96210096EF6A /* LICENSE */; };
 		14E9790A2231FC1B00680ABD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E979092231FC1B00680ABD /* AppDelegate.swift */; };
 		14E9790C2231FC1B00680ABD /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E9790B2231FC1B00680ABD /* RootViewController.swift */; };
 		14E9790E2231FC1B00680ABD /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E9790D2231FC1B00680ABD /* DataViewController.swift */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		14205B0D2239AF6200681B3D /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
 		1459C14022345AD7001094F6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		147056B0224D96210096EF6A /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		14E979062231FC1B00680ABD /* cmpe131book.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cmpe131book.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14E979092231FC1B00680ABD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14E9790B2231FC1B00680ABD /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 		14E978FD2231FC1B00680ABD = {
 			isa = PBXGroup;
 			children = (
+				147056B0224D96210096EF6A /* LICENSE */,
 				14205B0D2239AF6200681B3D /* CONTRIBUTING.md */,
 				1459C14022345AD7001094F6 /* README.md */,
 				14E979082231FC1B00680ABD /* cmpe131book */,
@@ -272,6 +275,7 @@
 			files = (
 				14E979182231FC1C00680ABD /* LaunchScreen.storyboard in Resources */,
 				14E979152231FC1C00680ABD /* Assets.xcassets in Resources */,
+				147056B1224D96210096EF6A /* LICENSE in Resources */,
 				14E979132231FC1B00680ABD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
