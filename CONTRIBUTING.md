@@ -5,7 +5,7 @@
 
 Make sure your download & update your Xcode versoin to 10.1 (10B61)
 
-Set your simulator to iPhone8 
+Set your simulator to iPhone 8 (iOS12.1)
 
 In the terminal type 
 
