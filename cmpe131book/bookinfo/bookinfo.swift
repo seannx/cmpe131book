@@ -48,9 +48,4 @@ class Bookinfo{
         Book.append(Row5)
         Book.append(Row6)
     }
-    func randomnumber()->String{
-        let random = Int.random(in: 1...48)
-        let imag = String(random)
-        return imag
-    }
 }
