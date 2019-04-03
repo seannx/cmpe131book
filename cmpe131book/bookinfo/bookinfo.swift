@@ -12,7 +12,7 @@ class Bookinfo{
     var Book : [Infobase] = []
     init() {
         Book.append(Infobase.init(Title:"Shakugun No SHANA", Abstruct: "坂井悠二", ima: "11"))
-        Book.append(Infobase.init(Title:"Your Lie in April", Abstruct: "April without you", ima: "11"))
+        Book.append(Infobase.init(Title:"Your Lie in April", Abstruct: "有马公生", ima: "11"))
         Book.append(Infobase.init(Title:"Stein Gate", Abstruct: "Its your choice", ima: "11"))
         Book.append(Infobase.init(Title:"Death Note", Abstruct: "Emmmmm L", ima: "11"))
         Book.append(Infobase.init(Title:"Naruto", Abstruct: "有树叶飘落的地方 火的意志就在燃烧", ima: "11"))

@@ -22,7 +22,6 @@ class BOOKTableViewController: UITableViewController, UISearchBarDelegate{
         searchBar.delegate = self
         searchBar.returnKeyType = UIReturnKeyType.done
         currentbook = BooKINFO.Book
-
     }
     required init?(coder aDecoder: NSCoder) {
         BooKINFO = Bookinfo()
@@ -43,7 +42,6 @@ class BOOKTableViewController: UITableViewController, UISearchBarDelegate{
         let cell = tableView.dequeueReusableCell(withIdentifier: "Item", for: indexPath)
         let position = currentbook[indexPath.row]
         textconfig(for: cell, with: position)
-        currentbook = BooKINFO.Book
         return cell
     }
     
@@ -70,8 +68,7 @@ class BOOKTableViewController: UITableViewController, UISearchBarDelegate{
             tableview.reloadData()
             return}
         currentbook = BooKINFO.Book.filter({ (Infobase) -> Bool in
-            guard let text = searchBar.text else {return false}
-            return Infobase.Title.lowercased().contains(text.lowercased())
+            Infobase.Title.lowercased().contains(searchText.lowercased())
         })
         tableview.reloadData()
     }
