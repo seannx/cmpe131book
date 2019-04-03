@@ -12,4 +12,9 @@ class Infobase{
     var Title : String = ""
     var Abstruct : String = ""
     var ima : String = ""
+    init(Title : String, Abstruct: String, ima : String) {
+        self.Title = Title
+        self.Abstruct = Abstruct
+        self.ima = ima
+    }
 }
