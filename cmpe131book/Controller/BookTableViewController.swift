@@ -52,8 +52,7 @@ class BOOKTableViewController: UITableViewController, UISearchBarDelegate{
     }//delete function
     
     func textconfig(for cell : UITableViewCell, with item : Infobase){
-        cell.textLabel!.text = item.Title
-        cell.detailTextLabel!.text = item.Abstruct
+        cell.textLabel!.text = item.title
         cell.imageView?.image = UIImage(named: item.ima)
         cell.textLabel!.textColor = function.randomColor()
         cell.detailTextLabel!.textColor = function.randomColor()
@@ -68,7 +67,7 @@ class BOOKTableViewController: UITableViewController, UISearchBarDelegate{
             tableview.reloadData()
             return}
         currentbook = BooKINFO.Book.filter({ (Infobase) -> Bool in
-            Infobase.Title.lowercased().contains(searchText.lowercased())
+            Infobase.title.lowercased().contains(searchText.lowercased())
         })
         tableview.reloadData()
     }
