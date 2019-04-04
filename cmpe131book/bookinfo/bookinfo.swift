@@ -11,46 +11,10 @@ import UIKit
 class Bookinfo{
     var Book : [Infobase] = []
     init() {
-        let Row0 = Infobase()
-        let Row1 = Infobase()
-        let Row2 = Infobase()
-        let Row3 = Infobase()
-        let Row4 = Infobase()
-        let Row5 = Infobase()
-        let Row6 = Infobase()
+        Book.append(Infobase.init(Title: "Where the Crawdads Sing", author: "Delia Owens", Abstruct: "#1 New York Times Bestseller", genre: "Fiction", rating: 4.8, Nofpages: 496, Readlv: "", publisher: "Random House Large Print; Large Print edition(August 14, 2018)", year: 2018, IBSN: 1984827618))
+        Book.append(Infobase.init(Title: "The Silent Patient", author: "Alex Michaelides", Abstruct: "An unforgettable--and Hollywood-bound--new threiller... A mix ofHitchcokian suspense, Agatha Christie plotting, and Greek tragedy", genre: "Thriller", rating: 4.3, Nofpages: 297, Readlv: "", publisher: "Celadon Books(February 5, 2019)", year: 2019, IBSN: 1250301696))
+        Book.append(Infobase.init(Title: "The Road Beyond Ruin", author: "Gemma Liviero", Abstruct: "For some people in post--WWII Germany, the battle is not over", genre: "History Fiction", rating: 4.3, Nofpages: 443, Readlv: "", publisher: "Lake Union Publishing(January 1, 2019)", year: 2019, IBSN: 1503901017))
+        Book.append(Infobase.init(Title: "Beyond the Great River", author: "Zoe Saadia", Abstruct: "Action, politics and love in the 12th North America. Ready to fall in love with pre-Columbian world?", genre: "Fiction", rating: 4.2, Nofpages: 335, Readlv: "", publisher: "Amazon Digital Services LLC", year: 2014, IBSN: 0))
         
-        Row0.Title = "Shakugun No SHANA"
-        Row0.Abstruct = "坂井悠二"
-        Row0.ima = "5"
-        Row1.Title = "四月的谎言"
-        Row1.Abstruct = "April without you"
-        Row1.ima = "5"
-        Row2.Title = "Stein Gate"
-        Row2.Abstruct = "Its your choice"
-        Row2.ima = "5"
-        Row3.Title = "Death Note"
-        Row3.Abstruct = "Emmmmm L"
-        Row3.ima = "5"
-        Row4.Title = "火影忍者"
-        Row4.Abstruct = "有树叶飘落的地方 火的意志就在燃烧"
-        Row4.ima = "5"
-        Row5.Title = "Bleach"
-        Row5.Abstruct = "Death"
-        Row5.ima = "5"
-        Row6.Title = "Raligun"
-        Row6.Abstruct = "-------"
-        Row6.ima = "5"
-        Book.append(Row0)
-        Book.append(Row1)
-        Book.append(Row2)
-        Book.append(Row3)
-        Book.append(Row4)
-        Book.append(Row5)
-        Book.append(Row6)
-    }
-    func randomnumber()->String{
-        let random = Int.random(in: 1...48)
-        let imag = String(random)
-        return imag
     }
 }
