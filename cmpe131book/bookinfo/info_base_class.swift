@@ -29,6 +29,7 @@ class Infobase{
         self.rating = rating
         self.Nofpages = Nofpages
         self.publisher = publisher
+        self.Readlv = Readlv
         self.year = year
         self.IBSN = IBSN
     }

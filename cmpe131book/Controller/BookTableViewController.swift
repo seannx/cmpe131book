@@ -45,6 +45,17 @@ class BOOKTableViewController: UITableViewController, UISearchBarDelegate{
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Passdetail"{
+            if let DetailTableViewController = segue.destination as? DetailTableViewController{
+                if let cell = sender as? UITableViewCell, let indexp = tableView.indexPath(for: cell){
+                    let information = BooKINFO.Book[indexp.row]
+                    DetailTableViewController.INFO = information
+                }
+            }
+        }
+    }// pass data to detailtableviewcontroller
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         BooKINFO.Book.remove(at: indexPath.row)
         let InDexpath = [indexPath]
