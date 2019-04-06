@@ -9,20 +9,20 @@
 import UIKit
 
 class CategoryTableViewController: UITableViewController {
-
+    let Genre : genreinfo
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 75 // set the hight of each cell
 
     }
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    required init?(coder aDecoder: NSCoder) {
+        Genre = genreinfo()
+        super.init(coder: aDecoder)
     }
-
+   
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return Genre.GenreINFO.count
     } // number of category displayed on screen
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -32,13 +32,24 @@ class CategoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "TOPRATING", for: indexPath)
-        textconfig(for: cell, with: indexPath)
+        let position = Genre.GenreINFO[indexPath.row]
+        textconfig(for: cell, with: position)
         return cell
     }
     
-    func textconfig(for cell : UITableViewCell, with item : IndexPath){
-        cell.textLabel?.text = "Romantic"
-        cell.imageView?.image = UIImage(named: "5")
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "CINFO"{
+            if let ClistTableView = segue.destination as? ClistTableViewController{
+                if let cell = sender as? UITableViewCell, let indexp = tableView.indexPath(for: cell){
+                    let item = Genre.GenreINFO[indexp.row]
+                    ClistTableView.genre = item.genre
+                }
+            }
+        }
+    }
+    
+    func textconfig(for cell : UITableViewCell, with item : genre){
+        cell.textLabel?.text = item.genre
     }
 
 }
