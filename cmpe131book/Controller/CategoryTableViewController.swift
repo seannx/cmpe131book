@@ -16,7 +16,6 @@ class CategoryTableViewController: UITableViewController {
 
     }
 
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 0
@@ -30,11 +29,13 @@ class CategoryTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)// enable animation for selection
         
     }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "TOPRATING", for: indexPath)
         textconfig(for: cell, with: indexPath)
         return cell
     }
+    
     func textconfig(for cell : UITableViewCell, with item : IndexPath){
         cell.textLabel?.text = "Romantic"
         cell.imageView?.image = UIImage(named: "5")
