@@ -20,13 +20,26 @@ class DetailTableViewController: UITableViewController {
     @IBOutlet weak var publisher: UILabel!
     @IBOutlet weak var year: UILabel!
     @IBOutlet weak var IBSN: UILabel!
+    weak var delegate : DetailTableViewController?
+    weak var BooKINFO : Bookinfo?
+    weak var INFO : Infobase?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 60
+        T.text = INFO?.title
+        author.text = INFO?.author
+        Genre.text = INFO?.genre
+        rating.text = String(INFO!.rating)
+        pages.text = String(INFO!.numOfPages)
+        level.text = INFO?.readLevel
+        publisher.text = INFO?.publisher
+        year.text = String(INFO!.year)
+        IBSN.text = String(INFO!.isbn)
     }
 
     // MARK: - Table view data source
+    
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -37,6 +50,7 @@ class DetailTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return 9
     }
+   
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
