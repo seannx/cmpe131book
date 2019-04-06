@@ -27,15 +27,15 @@ class DetailTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 60
-        T.text = INFO?.Title
+        T.text = INFO?.title
         author.text = INFO?.author
         Genre.text = INFO?.genre
         rating.text = String(INFO!.rating)
-        pages.text = String(INFO!.Nofpages)
-        level.text = INFO?.Readlv
+        pages.text = String(INFO!.numOfPages)
+        level.text = INFO?.readLevel
         publisher.text = INFO?.publisher
         year.text = String(INFO!.year)
-        IBSN.text = String(INFO!.IBSN)
+        IBSN.text = String(INFO!.isbn)
     }
 
     // MARK: - Table view data source
