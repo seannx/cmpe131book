@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class DetailTableViewController: UITableViewController {
 
@@ -22,7 +23,7 @@ class DetailTableViewController: UITableViewController {
     @IBOutlet weak var IBSN: UILabel!
     weak var delegate : DetailTableViewController?
     weak var BooKINFO : Bookinfo?
-    weak var INFO : Infobase?
+    weak var INFO : Book?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +32,8 @@ class DetailTableViewController: UITableViewController {
         author.text = INFO?.author
         Genre.text = INFO?.genre
         rating.text = String(INFO!.rating)
-        pages.text = String(INFO!.numOfPages)
-        level.text = INFO?.readLevel
+        pages.text = String(INFO!.numofpages)
+//        level.text = INFO?.readLevel
         publisher.text = INFO?.publisher
         year.text = String(INFO!.year)
         IBSN.text = String(INFO!.isbn)

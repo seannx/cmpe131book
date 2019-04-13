@@ -7,22 +7,43 @@
 //
 
 import UIKit
+import CoreData
 
 class ClistTableViewController: UITableViewController {
+    
+    var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>!
+    
+    private var fetchedRC : NSFetchedResultsController<Book>!
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var commitPredicate: NSPredicate?
+    let fetchrequest = NSFetchRequest<NSFetchRequestResult>(entityName: "BookDB")
+    
     var genre : String = ""
-    let listINFO : Clistinfo
-    var CurrentList = [Clist]()
+    var CurrentList = [Book]()
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 75
-        CurrentList = listINFO.CINFO.filter({ (Clist) -> Bool in
-            Clist.genre.lowercased().contains(genre.lowercased())
-        })
+        Filter()
+        tableView.reloadData()
     }
     required init?(coder aDecoder: NSCoder) {
-        listINFO = Clistinfo()
         super.init(coder: aDecoder)
      
+    }
+    
+    func Filter() {
+        let filtertext = genre
+        if !filtertext.isEmpty{
+            let request = Book.fetchRequest() as NSFetchRequest<Book>
+            request.predicate = NSPredicate(format: "genre CONTAINS %@", filtertext)
+                do{
+                    CurrentList = try context.fetch(request)
+                } catch let error as NSError{
+                    print("Could not fetch. \(error), \(error.userInfo)")
+                    }
+        }
+
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -40,8 +61,7 @@ class ClistTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    func textconfig(for cell : UITableViewCell, with item : Clist){
+    func textconfig(for cell : UITableViewCell, with item : Book){
         cell.textLabel!.text = item.title
-        cell.imageView?.image = UIImage(named: item.ima)
     }
 }
