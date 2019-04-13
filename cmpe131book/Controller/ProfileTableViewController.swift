@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ProfileTableViewController: UITableViewController {
     
@@ -22,7 +23,7 @@ class ProfileTableViewController: UITableViewController {
     @IBOutlet weak var IBSN: UILabel!
     weak var delegate : DetailTableViewController?
     weak var BooKINFO : Bookinfo?
-    weak var INFO : Infobase?
+    weak var INFO : Book?
     
     override func viewDidLoad() {
         super.viewDidLoad()
