@@ -35,12 +35,9 @@ class BOOKTableViewController: UITableViewController, UISearchBarDelegate{
 
     }
     required init?(coder aDecoder: NSCoder) {
-//        BooKINFO = Bookinfo()
-//        function = functions()
         super.init(coder: aDecoder)
-//        currentbook = BooKINFO.Book
-        
     }// init book info
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         refresh()
@@ -51,36 +48,56 @@ class BOOKTableViewController: UITableViewController, UISearchBarDelegate{
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func Addbook(_ sender: Any) {
-        let data = Bookdata()
-        let book = Book(entity: Book.entity(), insertInto: context)
-        book.title = data.title
-        book.author = data.author
-        book.genre = data.genre
-        book.publisher = data.publisher
-        appDelegate.saveContext()
-        refresh()
-        tableview.reloadData()
+//    @IBAction func Addbook(_ sender: Any) {
+//        let data = Bookdata()
+//        let book = Book(entity: Book.entity(), insertInto: context)
+//        book.title = data.title
+//        book.author = data.author
+//        book.genre = data.genre
+//        book.publisher = data.publisher
+//        appDelegate.saveContext()
+//        refresh()
+//        tableview.reloadData()
+//    }
+    func ResetDB(){
+        let Dele = NSBatchDeleteRequest(fetchRequest: fetchrequest)
+        do{
+            try context.execute(Dele)
+        } catch let error as NSError{
+            print("Cannot Delete, \(error), \(error.userInfo)")
+        }
     }
    
 
     func defaultBK(){
         if launch == "Y"{
-            let Dtitle = ["Where the Crawdads Sing","The Silent Patient","The Road Beyond Ruin","Beyond the Great River"]
-            let entity = NSEntityDescription.entity(forEntityName: "Book", in: context)!
+            ResetDB()
             
-            for title in Dtitle{
-                let TITLE = NSManagedObject(entity: entity, insertInto: context)
-                TITLE.setValue(title, forKey: "title")
-                TITLE.setValue(title, forKey: "author")
-                TITLE.setValue(title, forKey: "genre")
-                TITLE.setValue(title, forKey: "publisher")
+//            let Dtitle = ["Where the Crawdads Sing","The Silent Patient","The Road Beyond Ruin","Beyond the Great River"]
+//            let entity = NSEntityDescription.entity(forEntityName: "Book", in: context)!
+//
+//            for title in Dtitle{
+//                let TITLE = NSManagedObject(entity: entity, insertInto: context)
+//                TITLE.setValue(title, forKey: "title")
+//                TITLE.setValue(title, forKey: "author")
+//                TITLE.setValue(title, forKey: "genre")
+//                TITLE.setValue(title, forKey: "publisher")
+//            }
+            let IN = Bookdata()
+            var i = IN.count-1
+            print("the number of count is ,\(i)")
+            while i >= 0{
+            let data = Bookdata()
+            let book = Book(entity: Book.entity(), insertInto: context)
+            book.title = data.title[i]
+            book.author = data.author[i]
+            book.genre = data.genre[i]
+            book.publisher = data.publisher[i]
+                i = i - 1
             }
-            
             appDelegate.saveContext()
-//            appDelegate.saveContext()
-            
-
+            refresh()
+            tableview.reloadData()
         } else{
             refresh()
             tableView.reloadData()

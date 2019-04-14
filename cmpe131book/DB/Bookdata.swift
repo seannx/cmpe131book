@@ -9,16 +9,16 @@
 import Foundation
 import CoreData
 class Bookdata{
-      var author = ""
-      var genre = ""
+    var author = [String]()
+      var genre = [String]()
 //      var isbn: Int16
 //      var numofpages: Int16
-      var publisher = ""
+      var publisher = [String]()
 //      var rating: Double
 //      var readinglevel = ""
-      var title = ""
+        var title = [String]()
 //      var year: Int16
-    
+        var count = 0
         private let authors = ["Delia Owens", "Alex Michaelides", "Gemma Liviero","Zoe Saadia"]
         private let genres = ["Fiction", "Thriller", "Fiction", "Art"]
 //        private let isbns = [1984827618, 1250301696,1503901017,0]
@@ -29,12 +29,13 @@ class Bookdata{
         private let titles = ["Where the Crawdads Sing","The Silent Patient","The Road Beyond Ruin","Beyond the Great River"]
 //        private let years = [2018,2019,2019,2014]
     init() {
-        let index = Int(arc4random_uniform(UInt32(authors.count)))
-        author = authors[index]
-        genre = genres[index]
-        publisher = publishers[index]
+        
+        author = authors
+        genre = genres
+        publisher = publishers
 //        readinglevel = readinglevels[index]
-        title = titles[index]
+        title = titles
+        count = authors.count
     }
 }
 
