@@ -11,35 +11,33 @@ import CoreData
 class BOOKTableViewController: UITableViewController, UISearchBarDelegate{
     
     var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>!
-    
     private var fetchedRC : NSFetchedResultsController<Book>!
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let fetchrequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Book")
+    let request = Book.fetchRequest() as NSFetchRequest<Book>
+    
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    
-//    var currentbook = [Infobase]()
-//    var filteredbook = [Infobase]()
-    private var BOOK = [Book]()
     private var filterBook = [Book]()
     private var selected : IndexPath!
+    private var query = ""
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 100 // set the hight of each cell
+        defaultBK()
         searchBar.delegate = self
         searchBar.returnKeyType = UIReturnKeyType.done
 
     }
     required init?(coder aDecoder: NSCoder) {
-//        BooKINFO = Bookinfo()
-//        function = functions()
         super.init(coder: aDecoder)
-//        currentbook = BooKINFO.Book
-        
     }// init book info
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         refresh()
@@ -50,22 +48,70 @@ class BOOKTableViewController: UITableViewController, UISearchBarDelegate{
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func Addbook() {
-        let data = Bookdata()
-        let book = Book(entity: Book.entity(), insertInto: context)
-        book.title = data.title
-        book.author = data.author
-        book.genre = data.genre
-        book.publisher = data.publisher
-        appDelegate.saveContext()
-        BOOK.append(book)
-        let index = IndexPath(row: BOOK.count-1, section: 0)
-        tableview?.insertRows(at: [index], with: .automatic)
+//    @IBAction func Addbook(_ sender: Any) {
+//        let data = Bookdata()
+//        let book = Book(entity: Book.entity(), insertInto: context)
+//        book.title = data.title
+//        book.author = data.author
+//        book.genre = data.genre
+//        book.publisher = data.publisher
+//        appDelegate.saveContext()
+//        refresh()
+//        tableview.reloadData()
+//    }
+    func ResetDB(){
+        let Dele = NSBatchDeleteRequest(fetchRequest: fetchrequest)
+        do{
+            try context.execute(Dele)
+        } catch let error as NSError{
+            print("Cannot Delete, \(error), \(error.userInfo)")
+        }
     }
-    
+   
+
+    func defaultBK(){
+        if launch == "Y"{
+            ResetDB()
+            
+//            let Dtitle = ["Where the Crawdads Sing","The Silent Patient","The Road Beyond Ruin","Beyond the Great River"]
+//            let entity = NSEntityDescription.entity(forEntityName: "Book", in: context)!
+//
+//            for title in Dtitle{
+//                let TITLE = NSManagedObject(entity: entity, insertInto: context)
+//                TITLE.setValue(title, forKey: "title")
+//                TITLE.setValue(title, forKey: "author")
+//                TITLE.setValue(title, forKey: "genre")
+//                TITLE.setValue(title, forKey: "publisher")
+//            }
+            let IN = Bookdata()
+            var i = IN.count-1
+            print("the number of count is ,\(i)")
+            while i >= 0{
+            let data = Bookdata()
+            let book = Book(entity: Book.entity(), insertInto: context)
+            book.title = data.title[i]
+            book.author = data.author[i]
+            book.genre = data.genre[i]
+            book.publisher = data.publisher[i]
+                i = i - 1
+            }
+            appDelegate.saveContext()
+            refresh()
+            tableview.reloadData()
+        } else{
+            refresh()
+            tableView.reloadData()
+            print("NOT FIRST TIME")
+        }
+        
+    }
+
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return BOOK.count
+        guard let objs = fetchedRC.fetchedObjects else{
+            return 0
+        }
+       return objs.count
     }// init number of cells
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -74,8 +120,8 @@ class BOOKTableViewController: UITableViewController, UISearchBarDelegate{
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "Item", for: indexPath)
-        let BOOKINFO = BOOK[indexPath.row]
-        textconfig(for: cell, with: BOOKINFO)
+        let BOOKINFOP = fetchedRC.object(at: indexPath)
+        textconfig(for: cell, with: BOOKINFOP)
         return cell
     }
     
@@ -83,7 +129,7 @@ class BOOKTableViewController: UITableViewController, UISearchBarDelegate{
         if segue.identifier == "Passdetail"{
             if let DetailTableViewController = segue.destination as? DetailTableViewController{
                 if let cell = sender as? UITableViewCell, let indexp = tableView.indexPath(for: cell){
-                    let information = BOOK[indexp.row]
+                    let information = fetchedRC.object(at: indexp)
                     DetailTableViewController.INFO = information
                 }
             }
@@ -91,7 +137,7 @@ class BOOKTableViewController: UITableViewController, UISearchBarDelegate{
     }// pass data to detailtableviewcontroller
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        let Position = BOOK[indexPath.row]
+        let Position = fetchedRC.object(at: indexPath)
         
         if editingStyle == .delete{
             context.delete(Position)
@@ -100,17 +146,18 @@ class BOOKTableViewController: UITableViewController, UISearchBarDelegate{
             } catch let error as NSError{
                 print ("Error while deleting Note: \(error.userInfo)")
             }
+            
         }
         
         do{
-            BOOK = try context.fetch(fetchrequest) as! [Book]
+            fetchedRC = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+            try fetchedRC.performFetch()
         } catch let error as NSError{
             print("Error while fetching data from DB: \(error.userInfo)")
         }
+        refresh()
         tableView.reloadData()
-//        BOOK.remove(at: indexPath.row)
-//        let InDexpath = [indexPath]
-//        tableView.deleteRows(at: InDexpath, with: .fade)
+
     }//delete function
 
     func textconfig(for cell : UITableViewCell, with item : Book){
@@ -121,15 +168,16 @@ class BOOKTableViewController: UITableViewController, UISearchBarDelegate{
     }//set textconten for each cell
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        guard let query = searchBar.text else {
+        guard let txt = searchBar.text else {
             return
         }
+        query = txt
         if !query.isEmpty{
-        let request = Book.fetchRequest() as NSFetchRequest<Book>
         request.predicate = NSPredicate(format: "title CONTAINS %@", query)
         
         do{
-            BOOK = try context.fetch(request)
+            fetchedRC = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+            try fetchedRC.performFetch()
         }catch let error as NSError{
             print("Could not fetch. \(error), \(error.userInfo)")
         }
@@ -141,43 +189,21 @@ class BOOKTableViewController: UITableViewController, UISearchBarDelegate{
         }
     }
     
-    func saveBook(){
-        
-    }
-    
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        guard let query = searchBar.text else {
-//            return
-//        }
-//        let request = Book.fetchRequest() as NSFetchRequest<Book>
-//        request.predicate = NSPredicate(format: "title == %@", query)
-//
-//        do{
-//            BOOK = try context.fetch(request)
-//        }catch let error as NSError{
-//            print("Could not fetch. \(error), \(error.userInfo)")
-//        }
-//        searchBar.resignFirstResponder()
-//        tableview.reloadData()
-//    }
+
     
     private func refresh(){
+        if !query.isEmpty{
+            request.predicate = NSPredicate(format: "name CONTAINS[cd] %@", query)
+        }
+        let sort = NSSortDescriptor(key: #keyPath(Book.title), ascending: true, selector: #selector(NSString.caseInsensitiveCompare(_:)))
+        request.sortDescriptors = [sort]
         do{
-            BOOK = try context.fetch(Book.fetchRequest())
+            fetchedRC = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+            try fetchedRC.performFetch()
         }catch let error as NSError{
             print("Could not fetch. \(error), \(error.userInfo)")
         }
     }
-//        guard !searchText.isEmpty else {
-//            filterBook = BOOK
-//            tableview.reloadData()
-//            return}
-//        filterBook = BOOK.filter({ (Book) -> Bool in
-//            (Book.title?.lowercased().contains(searchText.lowercased()))!
-//        })
-//        tableview.reloadData()
-//    }
-
 }
 
 

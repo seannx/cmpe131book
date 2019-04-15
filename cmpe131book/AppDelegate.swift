@@ -8,7 +8,9 @@
 
 import UIKit
 import CoreData
-
+let userDefaults = UserDefaults.standard
+var defaultValues = ["firsttime" : true]
+var launch = ""
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -41,6 +43,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        userDefaults.register(defaults: defaultValues)
+        if userDefaults.bool(forKey: "firsttime") == true{
+            launch = "Y"
+            UserDefaults.standard.set(false, forKey: "firsttime")
+            defaultValues = ["firsttime" : false]
+        }else{
+            launch = "N"
+        }
         // Override point for customization after application launch.
         return true
     }
@@ -66,7 +77,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    func applicationDidFinishLaunching(_ application: UIApplication) {
 
-
+    }
+    
 }
 
