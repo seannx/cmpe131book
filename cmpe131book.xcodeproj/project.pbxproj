@@ -20,11 +20,14 @@
 		14FA335B2256C4BC00A98010 /* BookDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 14FA33592256C4BC00A98010 /* BookDB.xcdatamodeld */; };
 		3E1A61272261EDE4004CEFDF /* Book+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1A61252261EDE4004CEFDF /* Book+CoreDataClass.swift */; };
 		3E1A61282261EDE4004CEFDF /* Book+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1A61262261EDE4004CEFDF /* Book+CoreDataProperties.swift */; };
+		3E1B00D72264FFDB007D0EE8 /* books.db in Resources */ = {isa = PBXBuildFile; fileRef = 3E1B00D62264FFDB007D0EE8 /* books.db */; };
 		3E1FEBC622585595003D0B98 /* genrebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1FEBC522585595003D0B98 /* genrebase.swift */; };
 		3E1FEBC8225855DB003D0B98 /* genreinfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1FEBC7225855DB003D0B98 /* genreinfo.swift */; };
 		3E1FEBCA22585904003D0B98 /* Clist_base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1FEBC922585904003D0B98 /* Clist_base.swift */; };
 		3E1FEBCC22585944003D0B98 /* Clistinfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1FEBCB22585944003D0B98 /* Clistinfo.swift */; };
 		3E1FEBCE225859AD003D0B98 /* ClistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1FEBCD225859AD003D0B98 /* ClistTableViewController.swift */; };
+		3E22DBE02267F9D9009F91D7 /* ADDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E22DBDE2267F9D9009F91D7 /* ADDViewController.swift */; };
+		3E22DBE722685BAD009F91D7 /* PreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E22DBE622685BAD009F91D7 /* PreTableViewController.swift */; };
 		3E30D6B82252B0D40048A67D /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E30D6B72252B0D40048A67D /* CategoryTableViewController.swift */; };
 		3E30D6C0225430AD0048A67D /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E30D6BF225430AD0048A67D /* ProfileTableViewController.swift */; };
 		3E3DF727224D2D7100B73508 /* BookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3DF726224D2D7100B73508 /* BookTableViewController.swift */; };
@@ -75,11 +78,14 @@
 		14FA335A2256C4BC00A98010 /* BookDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BookDB.xcdatamodel; sourceTree = "<group>"; };
 		3E1A61252261EDE4004CEFDF /* Book+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3E1A61262261EDE4004CEFDF /* Book+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3E1B00D62264FFDB007D0EE8 /* books.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = books.db; sourceTree = "<group>"; };
 		3E1FEBC522585595003D0B98 /* genrebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = genrebase.swift; sourceTree = "<group>"; };
 		3E1FEBC7225855DB003D0B98 /* genreinfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = genreinfo.swift; sourceTree = "<group>"; };
 		3E1FEBC922585904003D0B98 /* Clist_base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clist_base.swift; sourceTree = "<group>"; };
 		3E1FEBCB22585944003D0B98 /* Clistinfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clistinfo.swift; sourceTree = "<group>"; };
 		3E1FEBCD225859AD003D0B98 /* ClistTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClistTableViewController.swift; sourceTree = "<group>"; };
+		3E22DBDE2267F9D9009F91D7 /* ADDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADDViewController.swift; sourceTree = "<group>"; };
+		3E22DBE622685BAD009F91D7 /* PreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreTableViewController.swift; sourceTree = "<group>"; };
 		3E30D6B72252B0D40048A67D /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		3E30D6BF225430AD0048A67D /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		3E3DF726224D2D7100B73508 /* BookTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewController.swift; sourceTree = "<group>"; };
@@ -184,6 +190,7 @@
 				3E1A61262261EDE4004CEFDF /* Book+CoreDataProperties.swift */,
 				3E43FA022259BADB00F42242 /* Bookdata.swift */,
 				14FA33592256C4BC00A98010 /* BookDB.xcdatamodeld */,
+				3E1B00D62264FFDB007D0EE8 /* books.db */,
 			);
 			path = DB;
 			sourceTree = "<group>";
@@ -196,6 +203,8 @@
 				3E30D6BF225430AD0048A67D /* ProfileTableViewController.swift */,
 				3EB9F1F7225579E8003BA062 /* DetailTableViewController.swift */,
 				3E1FEBCD225859AD003D0B98 /* ClistTableViewController.swift */,
+				3E22DBDE2267F9D9009F91D7 /* ADDViewController.swift */,
+				3E22DBE622685BAD009F91D7 /* PreTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -330,6 +339,7 @@
 			files = (
 				14E979182231FC1C00680ABD /* LaunchScreen.storyboard in Resources */,
 				14E979152231FC1C00680ABD /* Assets.xcassets in Resources */,
+				3E1B00D72264FFDB007D0EE8 /* books.db in Resources */,
 				147056B1224D96210096EF6A /* LICENSE in Resources */,
 				14E979132231FC1B00680ABD /* Main.storyboard in Resources */,
 			);
@@ -358,6 +368,7 @@
 			files = (
 				3E1FEBCC22585944003D0B98 /* Clistinfo.swift in Sources */,
 				3EB9F1F8225579E8003BA062 /* DetailTableViewController.swift in Sources */,
+				3E22DBE722685BAD009F91D7 /* PreTableViewController.swift in Sources */,
 				3E1FEBC8225855DB003D0B98 /* genreinfo.swift in Sources */,
 				3E1FEBCE225859AD003D0B98 /* ClistTableViewController.swift in Sources */,
 				3E3DF727224D2D7100B73508 /* BookTableViewController.swift in Sources */,
@@ -372,6 +383,7 @@
 				3E30D6C0225430AD0048A67D /* ProfileTableViewController.swift in Sources */,
 				3E1FEBC622585595003D0B98 /* genrebase.swift in Sources */,
 				14E9790A2231FC1B00680ABD /* AppDelegate.swift in Sources */,
+				3E22DBE02267F9D9009F91D7 /* ADDViewController.swift in Sources */,
 				3E30D6B82252B0D40048A67D /* CategoryTableViewController.swift in Sources */,
 				3E3DF72B224D2DDE00B73508 /* info_base_class.swift in Sources */,
 				3E43FA032259BADB00F42242 /* Bookdata.swift in Sources */,
