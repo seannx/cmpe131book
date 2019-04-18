@@ -22,7 +22,7 @@ class ProfileTableViewController: UITableViewController {
     @IBOutlet weak var year: UILabel!
     @IBOutlet weak var IBSN: UILabel!
     weak var delegate : DetailTableViewController?
-    weak var BooKINFO : Bookinfo?
+//    weak var BooKINFO : Bookinfo?
     weak var INFO : Book?
     
     override func viewDidLoad() {

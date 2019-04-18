@@ -43,7 +43,6 @@ class ClistTableViewController: UITableViewController {
                     print("Could not fetch. \(error), \(error.userInfo)")
                     }
         }
-
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -59,7 +58,22 @@ class ClistTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let Storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let Dvc = Storyboard.instantiateViewController(withIdentifier: "ADD") as! ADDViewController
+        Dvc.BINFO = CurrentList[indexPath.row]
+        self.navigationController?.pushViewController(Dvc, animated: true)
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "BOOKINFO"{
+//            if let ADD = segue.destination as? addBOOKViewController{
+//                if let cell = sender as? UITableViewCell, let indexp = tableView.indexPath(for: cell){
+//                    let information = CurrentList[indexp.row]
+//                    ADD.BINFO = information
+//                }
+//            }
+//        }
+//    }
     
     func textconfig(for cell : UITableViewCell, with item : Book){
         cell.textLabel!.text = item.title
