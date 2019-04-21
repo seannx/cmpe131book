@@ -7,9 +7,17 @@
 //
 
 import UIKit
+import CoreData
 
 class PrefTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
-    
+    var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>!
+    private var fetchedRC : NSFetchedResultsController<User>!
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let fetchrequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+    let request = User.fetchRequest() as NSFetchRequest<User>
+    var Test = ""
+    var test = [User]()
     var currentTextfield = UITextField()
     var pickerView = UIPickerView()
     
@@ -66,17 +74,26 @@ class PrefTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if currentTextfield == Gender {
+            let user = User(entity: User.entity(), insertInto: context)
             Gender.text = GenderT[row]
+            user.gender = GenderT[row]
+            Test = GenreT[row]
             self.view.endEditing(true)
         }
         else if currentTextfield == Age{
+            let user = User(entity: User.entity(), insertInto: context)
             Age.text = AgeT[row]
+            user.age = AgeT[row]
             self.view.endEditing(true)
         }
         else if currentTextfield == Genre{
+            let user = User(entity: User.entity(), insertInto: context)
             Genre.text = GenreT[row]
+            user.age = GenreT[row]
             self.view.endEditing(true)
         }
+        appDelegate.saveContext()
+        Filter()
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -93,7 +110,17 @@ class PrefTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
             currentTextfield.inputView = pickerView
         }
     }
-    
+    func Filter() {
+        let filtertext = Test
+        if !filtertext.isEmpty{
+            request.predicate = NSPredicate(format: "gender CONTAINS %@", filtertext)
+            do{
+                test = try context.fetch(request)
+            } catch let error as NSError{
+                print("Could not fetch. \(error), \(error.userInfo)")
+            }
+        }
+    }
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

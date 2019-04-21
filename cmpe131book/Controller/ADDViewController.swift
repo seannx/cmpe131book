@@ -21,6 +21,7 @@ class ADDViewController: UIViewController {
     let request = Book.fetchRequest() as NSFetchRequest<Book>
     weak var delegate: AddViewControllerDelegate?
     
+      weak var BINFO : Book?
     @IBOutlet weak var Abs: UILabel!
     @IBOutlet weak var abstext: UITextView!
     @IBOutlet weak var IMA: UIImageView!
@@ -34,7 +35,7 @@ class ADDViewController: UIViewController {
         appDelegate.saveContext()
         delegate?.addViewControllerDidADD(self)
     }
-    weak var BINFO : Book?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         Abs.text = BINFO?.title

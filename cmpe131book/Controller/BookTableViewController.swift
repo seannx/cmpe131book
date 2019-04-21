@@ -117,8 +117,8 @@ class BOOKTableViewController: UITableViewController{
         }
     }// pass data to detailtableviewcontroller
     
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-
         
         if editingStyle == .delete{
             let B = fetchedRC.object(at: indexPath)
