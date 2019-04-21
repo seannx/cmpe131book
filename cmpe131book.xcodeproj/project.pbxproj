@@ -28,6 +28,8 @@
 		3E1FEBCE225859AD003D0B98 /* ClistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1FEBCD225859AD003D0B98 /* ClistTableViewController.swift */; };
 		3E22DBE02267F9D9009F91D7 /* ADDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E22DBDE2267F9D9009F91D7 /* ADDViewController.swift */; };
 		3E22DBE722685BAD009F91D7 /* PreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E22DBE622685BAD009F91D7 /* PreTableViewController.swift */; };
+		3E29FFA6226BF91500F67212 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E29FFA4226BF91500F67212 /* User+CoreDataClass.swift */; };
+		3E29FFA7226BF91600F67212 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E29FFA5226BF91500F67212 /* User+CoreDataProperties.swift */; };
 		3E30D6B82252B0D40048A67D /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E30D6B72252B0D40048A67D /* CategoryTableViewController.swift */; };
 		3E30D6C0225430AD0048A67D /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E30D6BF225430AD0048A67D /* ProfileTableViewController.swift */; };
 		3E3DF727224D2D7100B73508 /* BookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3DF726224D2D7100B73508 /* BookTableViewController.swift */; };
@@ -35,6 +37,7 @@
 		3E3DF72D224D2E1300B73508 /* bookinfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3DF72C224D2E1300B73508 /* bookinfo.swift */; };
 		3E3DF72F224D2E7C00B73508 /* functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3DF72E224D2E7C00B73508 /* functions.swift */; };
 		3E43FA032259BADB00F42242 /* Bookdata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E43FA022259BADB00F42242 /* Bookdata.swift */; };
+		3E507C4322691D9000341271 /* RecomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E507C4222691D9000341271 /* RecomTableViewController.swift */; };
 		3EB9F1F8225579E8003BA062 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB9F1F7225579E8003BA062 /* DetailTableViewController.swift */; };
 		3EB9F1FA225582EE003BA062 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB9F1F9225582EE003BA062 /* DetailTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -86,6 +89,8 @@
 		3E1FEBCD225859AD003D0B98 /* ClistTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClistTableViewController.swift; sourceTree = "<group>"; };
 		3E22DBDE2267F9D9009F91D7 /* ADDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADDViewController.swift; sourceTree = "<group>"; };
 		3E22DBE622685BAD009F91D7 /* PreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreTableViewController.swift; sourceTree = "<group>"; };
+		3E29FFA4226BF91500F67212 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3E29FFA5226BF91500F67212 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3E30D6B72252B0D40048A67D /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		3E30D6BF225430AD0048A67D /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		3E3DF726224D2D7100B73508 /* BookTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +98,7 @@
 		3E3DF72C224D2E1300B73508 /* bookinfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookinfo.swift; sourceTree = "<group>"; };
 		3E3DF72E224D2E7C00B73508 /* functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = functions.swift; sourceTree = "<group>"; };
 		3E43FA022259BADB00F42242 /* Bookdata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookdata.swift; sourceTree = "<group>"; };
+		3E507C4222691D9000341271 /* RecomTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecomTableViewController.swift; sourceTree = "<group>"; };
 		3EB9F1F7225579E8003BA062 /* DetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
 		3EB9F1F9225582EE003BA062 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -186,6 +192,8 @@
 		3E1F588E22597F7F00474295 /* DB */ = {
 			isa = PBXGroup;
 			children = (
+				3E29FFA4226BF91500F67212 /* User+CoreDataClass.swift */,
+				3E29FFA5226BF91500F67212 /* User+CoreDataProperties.swift */,
 				3E1A61252261EDE4004CEFDF /* Book+CoreDataClass.swift */,
 				3E1A61262261EDE4004CEFDF /* Book+CoreDataProperties.swift */,
 				3E43FA022259BADB00F42242 /* Bookdata.swift */,
@@ -205,6 +213,7 @@
 				3E1FEBCD225859AD003D0B98 /* ClistTableViewController.swift */,
 				3E22DBDE2267F9D9009F91D7 /* ADDViewController.swift */,
 				3E22DBE622685BAD009F91D7 /* PreTableViewController.swift */,
+				3E507C4222691D9000341271 /* RecomTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -376,14 +385,17 @@
 				3EB9F1FA225582EE003BA062 /* DetailTableViewCell.swift in Sources */,
 				3E1FEBCA22585904003D0B98 /* Clist_base.swift in Sources */,
 				14E9790C2231FC1B00680ABD /* RootViewController.swift in Sources */,
+				3E29FFA7226BF91600F67212 /* User+CoreDataProperties.swift in Sources */,
 				14E979102231FC1B00680ABD /* ModelController.swift in Sources */,
 				3E3DF72F224D2E7C00B73508 /* functions.swift in Sources */,
 				3E1A61272261EDE4004CEFDF /* Book+CoreDataClass.swift in Sources */,
 				14E9790E2231FC1B00680ABD /* DataViewController.swift in Sources */,
+				3E507C4322691D9000341271 /* RecomTableViewController.swift in Sources */,
 				3E30D6C0225430AD0048A67D /* ProfileTableViewController.swift in Sources */,
 				3E1FEBC622585595003D0B98 /* genrebase.swift in Sources */,
 				14E9790A2231FC1B00680ABD /* AppDelegate.swift in Sources */,
 				3E22DBE02267F9D9009F91D7 /* ADDViewController.swift in Sources */,
+				3E29FFA6226BF91500F67212 /* User+CoreDataClass.swift in Sources */,
 				3E30D6B82252B0D40048A67D /* CategoryTableViewController.swift in Sources */,
 				3E3DF72B224D2DDE00B73508 /* info_base_class.swift in Sources */,
 				3E43FA032259BADB00F42242 /* Bookdata.swift in Sources */,
